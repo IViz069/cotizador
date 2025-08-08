@@ -186,7 +186,11 @@ export default function App() {
 >
 
         <div className="quote-header">
-          <div className="logo-placeholder" />
+          <img
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            alt="Logo"
+            style={{ width: '140px', height: 'auto' }}
+          />
           <div className="header-right">
             <div className="empresa">
               <div><strong>Empresa:</strong> {form.empresa}</div>
