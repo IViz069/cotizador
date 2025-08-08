@@ -22,5 +22,13 @@
     "price": 19.5,
     "description": "Pack de marcadores para escenas favoritas.",
     "image": "https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=800"
+  },
+  {
+    "id": 4,
+    "name": "Rayo maquin",
+    "sku": "PST-009",
+    "price": 9999,
+    "description": "Rayo maquin",
+    "image": "https://i.ytimg.com/vi/2gRcvS2ltjE/hq720.jpg"
   }
 ]
