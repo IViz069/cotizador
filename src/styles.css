@@ -1,0 +1,190 @@
+/* === Base / variables === */
+:root {
+  --bg:#0b0c10; --paper:#ffffff; --ink:#1f2833; --muted:#6b7280;
+  --brand:#111827; --card:#f9fafb; --line:#e5e7eb;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg); color:#fff;
+}
+
+/* === Layout general === */
+.container { max-width: 1100px; margin: 0 auto; padding: 16px; }
+.toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px; }
+.toolbar h1 { font-size: 20px; font-weight: 700; margin:0; }
+.toolbar button {
+  border:0; padding:10px 14px; border-radius:10px;
+  background:#fff; color:#111; cursor:pointer; font-weight:600;
+}
+.toolbar button:hover { opacity:.9; }
+
+/* === Hoja "genérica" exportable (usada como base) === */
+.pdf-sheet {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+/* ====== PANEL DE CONTROL (selección + formularios) ====== */
+.panel {
+  background:#14151a; color:#fff; border:1px solid #26282f; border-radius:12px; padding:16px; margin-bottom:16px;
+}
+.panel h2 { margin:0 0 12px; font-size:16px; }
+
+/* Selector de productos */
+.picker { display:flex; flex-direction:column; gap:8px; }
+.picker-row {
+  display:grid; grid-template-columns: 1fr 120px 120px 120px; gap:10px; align-items:center;
+  background:#0f1014; border:1px solid #22242b; border-radius:10px; padding:10px;
+}
+.picker-name { display:flex; flex-direction:column; gap:4px; }
+.picker-name small { color:#9aa0a6; }
+.picker-unit { text-align:right; font-weight:600; }
+.picker-qty input, .picker-disc input {
+  width:100%; padding:8px 10px; border-radius:8px; border:1px solid #2a2d35; background:#0b0c10; color:#fff;
+}
+
+/* Formularios de cabecera */
+.grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.form-col { background:#0f1014; border:1px solid #22242b; border-radius:10px; padding:12px; }
+.form-col h3 { margin:0 0 10px; font-size:14px; color:#e5e7eb; }
+.row { display:grid; grid-template-columns: 140px 1fr; gap:10px; align-items:center; margin-bottom:8px; }
+.row label { font-size:13px; color:#cbd5e1; }
+.row input, .form-col textarea {
+  width:100%; padding:8px 10px; border-radius:8px; border:1px solid #2a2d35; background:#0b0c10; color:#fff;
+}
+.form-col textarea { resize:vertical; }
+
+/* ====== COTIZACIÓN (estructura del PDF) ====== */
+.quote { background: var(--paper); color: #000; }
+.quote .quote-header {
+  display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+  border-bottom:2px solid #d1d5db; padding-bottom:10px; margin-bottom:12px;
+}
+.logo-placeholder {
+  width:140px; height:60px; border:2px solid #d1d5db; border-radius:6px; background:#f9fafb;
+}
+.header-right { display:flex; gap:24px; }
+.empresa { font-size:13px; }
+.cotiz { text-align:right; font-size:13px; }
+.cotiz strong { font-size:14px; }
+
+.quote-section { margin-top:14px; }
+.quote-section h4 { margin:0 0 8px; font-size:14px; }
+.two-col { display:grid; grid-template-columns: 1fr 1fr; gap:16px; }
+.kv { display:flex; gap:6px; font-size:13px; margin-bottom:4px; }
+.kv > span { color:#374151; }
+.boxed { border:1px solid #d1d5db; background:#f9fafb; padding:10px; min-height:80px; white-space:pre-line; }
+
+/* Tabla */
+.table-wrap { overflow:auto; }
+.quote-table { width:100%; border-collapse:collapse; font-size:13px; }
+.quote-table th, .quote-table td { border:1px solid #e5e7eb; padding:8px; background:#fff; }
+.quote-table thead th { background:#f3f4f6; }
+.quote-table .num { text-align:right; white-space:nowrap; }
+.quote-table .muted { color:#6b7280; text-align:center; }
+.quote-table tfoot td.label { font-weight:600; }
+.quote-table tfoot td.total { font-weight:800; }
+
+/* ====== (Opcional) Grid y cards originales del catálogo ====== */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:12px;
+}
+.card {
+  background: var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.card img { width:100%; height:140px; object-fit:cover; }
+.card-body { padding:10px; display:flex; flex-direction:column; gap:6px; }
+.card-body h3 { font-size:16px; margin:0; }
+.sku { color: var(--muted); font-size:12px; }
+.desc { font-size:13px; color:#374151; }
+.price { font-weight:700; margin-top:auto; }
+.error { color: #ff6363; }
+
+
+/* miniaturas en el selector */
+.picker-row { grid-template-columns: 64px 1fr 120px 120px 120px; }
+.picker-thumb { width:56px; height:56px; object-fit:cover; border-radius:8px; }
+.picker-name { display:flex; flex-direction:column; }
+
+
+/* ====== Estilo Gildemeister-like para la hoja ====== */
+:root { --accent:#2e86c1; } /* azul de acento */
+
+.quote {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Barra superior derecha (caja gris con título y fecha) */
+.quote .header-right {
+  align-items:flex-start;
+}
+.quote .cotiz {
+  background:#f3f4f6;
+  border:1px solid #d1d5db;
+  padding:10px 12px;
+  border-radius:6px;
+  min-width: 260px;
+}
+.quote .cotiz .title {
+  font-weight:800;
+  letter-spacing:.3px;
+}
+.quote .cotiz .date {
+  font-size:12px; color:#4b5563; text-align:right;
+}
+
+/* Línea azul separadora */
+.quote .rule {
+  height:0; border:0; border-top:3px solid var(--accent); margin:12px 0 6px;
+}
+
+/* Titulares de secciones (CLIENTE, VENDEDOR, etc.) */
+.quote-section h4 {
+  font-weight:800;
+  letter-spacing:.3px;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  color:#000;
+}
+.quote-section h4 + .rule { margin-top:4px; }
+
+/* Etiquetas/valores */
+.kv span { min-width:90px; display:inline-block; color:#111827; font-weight:600; }
+.kv b { font-weight:800; }
+
+/* Cajas de texto (Cta Corriente / Observaciones) */
+.boxed {
+  background:#f9fafb;
+  border:2px solid #e5e7eb;
+  border-radius:6px;
+}
+
+/* Tabla detalle */
+.quote-table thead th {
+  background:#f3f4f6;
+  font-weight:700;
+}
+.quote-table tbody tr:nth-child(odd) td { background:#fafafa; }
+.quote-table tfoot td { background:#fff; }
+.quote-table tfoot td.label { font-weight:700; }
+.quote-table tfoot td.total { font-weight:800; }
+.quote-table .tight { width: 94px; }  /* para % y cantidad */
+.quote-table .medium { width: 115px; } /* precio y subtotal */
+.quote-table .wide { width: 160px; }   /* total inc IGV */
+
+/* Ajuste de página para A4 (ancho útil ~ 180mm) */
+.quote { padding: 18px; }
+.quote { box-shadow: 0 0 0 2px #f3f4f6 inset; }
